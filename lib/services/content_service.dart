@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter/foundation.dart' show ChangeNotifier;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,7 +45,7 @@ class TipCard {
 ///   newer card set and caches it locally.
 /// - There is no live API, no auth, no server logic to maintain — a
 ///   developer just replaces the JSON file at that URL to push new content.
-class ContentService {
+class ContentService extends ChangeNotifier {
   static const _cacheKey = 'cached_tip_cards_v1';
   static const _versionKey = 'cached_tip_cards_version';
 
@@ -66,6 +67,7 @@ class ContentService {
       _cards = _parse(bundled);
       await prefs.setString(_cacheKey, bundled);
     }
+    notifyListeners();
     // Fire-and-forget: try to refresh from the network without blocking UI.
     unawaited(refreshFromServer());
   }
@@ -95,6 +97,7 @@ class ContentService {
       _cards = _parse(resp.body);
       await prefs.setString(_cacheKey, resp.body);
       await prefs.setString(_versionKey, remoteVersion);
+      notifyListeners();
       return true;
     } catch (_) {
       // Fully offline-safe: any failure just keeps using cached/bundled data.
