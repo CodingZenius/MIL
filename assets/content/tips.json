@@ -1,0 +1,61 @@
+{
+  "version": "1",
+  "cards": [
+    {
+      "id": "hyd-001",
+      "category": "hydration",
+      "title": "Sip before you're thirsty",
+      "summary": "Thirst means you're already behind on fluids.",
+      "body": "By the time you feel thirsty, you've typically already lost 1-2% of your body water. Sipping steadily through the day — rather than chugging large amounts at once — keeps energy and focus more stable, especially around workouts."
+    },
+    {
+      "id": "hyd-002",
+      "category": "hydration",
+      "title": "Electrolytes matter after sweat",
+      "summary": "Water alone isn't always enough after a hard session.",
+      "body": "Heavy sweating flushes out sodium and potassium along with water. After long or hot workouts, a pinch of salt or an electrolyte tablet in your water helps your body actually retain the fluid you're drinking instead of running straight through you."
+    },
+    {
+      "id": "nut-001",
+      "category": "nutrition",
+      "title": "Protein spread through the day",
+      "summary": "Even distribution beats one big serving.",
+      "body": "Muscle protein synthesis responds best to protein spaced across 3-4 meals rather than one large dose at dinner. Aim for a palm-sized portion of protein at each meal instead of saving it all for one sitting."
+    },
+    {
+      "id": "nut-002",
+      "category": "nutrition",
+      "title": "Carbs are training fuel, not the enemy",
+      "summary": "Timing carbs around workouts improves performance.",
+      "body": "Carbohydrates refill the glycogen your muscles burn during exercise. A small carb-containing snack 60-90 minutes before a run, and some carbs afterward, helps you perform better and recover faster — regardless of your overall goal."
+    },
+    {
+      "id": "run-001",
+      "category": "running",
+      "title": "Cadence over stride length",
+      "summary": "Quicker, shorter steps reduce impact.",
+      "body": "Many new runners overstride, landing heavily out in front of the body. Aiming for a slightly quicker cadence (around 170-180 steps/min) naturally shortens your stride and softens impact on your knees and shins."
+    },
+    {
+      "id": "run-002",
+      "category": "running",
+      "title": "Easy days should feel easy",
+      "summary": "Most of your running should be conversational pace.",
+      "body": "A common mistake is running every session near max effort. Keeping the majority of your runs at a pace where you could hold a conversation builds your aerobic base without piling up fatigue that blocks real progress."
+    },
+    {
+      "id": "rec-001",
+      "category": "recovery",
+      "title": "Sleep is when adaptation happens",
+      "summary": "Training breaks you down; sleep builds you back up.",
+      "body": "The physical improvements you're chasing — more endurance, more strength — largely happen during deep sleep, not during the workout itself. Consistently under-sleeping blunts these gains no matter how hard you train."
+    },
+    {
+      "id": "rec-002",
+      "category": "recovery",
+      "title": "Soreness isn't a scoreboard",
+      "summary": "You don't need to be sore to have had a good session.",
+      "body": "Muscle soreness is a sign of unfamiliar or increased stress, not a reliable measure of workout quality. Consistent, moderate training that leaves you a little tired — not wrecked — tends to produce better long-term results."
+    }
+  ]
+}

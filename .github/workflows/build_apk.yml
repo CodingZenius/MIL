@@ -1,0 +1,58 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: {}
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Flutter doctor
+        run: flutter doctor -v
+
+      # This repo ships only lib/, pubspec.yaml, and assets/ (no platform
+      # folders) so the project stays framework-version agnostic. This step
+      # scaffolds android/ (and ios/, harmlessly) using whatever Flutter/Gradle
+      # versions the CI runner currently has, then merges it in without
+      # touching lib/ or pubspec.yaml.
+      - name: Generate platform folders
+        run: |
+          if [ ! -d "android" ]; then
+            flutter create --platforms=android --org com.fitpulse --project-name fitpulse .
+          fi
+
+      - name: Patch AndroidManifest permissions
+        run: bash scripts/patch_android_manifest.sh
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build release APK
+        run: flutter build apk --release
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fitpulse-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
