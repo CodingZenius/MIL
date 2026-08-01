@@ -1,6 +1,6 @@
 # FitPulse
 
-A Material 3 ("Android 16" style) fitness app: bold typography, dynamic
+A Material 3 ("Android 16" style) fitness app: bold typography, dynamico
 color, bright blue/red on near-black, circular activity rings on the
 dashboard, rectangular cards for detail stats, and swipeable Home →
 Hydration → Nutrition pages.
